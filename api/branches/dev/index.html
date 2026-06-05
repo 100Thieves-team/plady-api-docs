@@ -448,23 +448,35 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#_introduce">Introduce</a></li>
-<li><a href="#_example_api">Example API</a>
+<li><a href="#_auth_api">Auth API</a>
 <ul class="sectlevel2">
-<li><a href="#_example_get_api">Example GET API</a>
+<li><a href="#_내_인증_정보_조회">내 인증 정보 조회</a>
 <ul class="sectlevel3">
 <li><a href="#_curl_request">Curl Request</a></li>
-<li><a href="#_path_parameters">Path Parameters</a></li>
-<li><a href="#_query_parameters">Query Parameters</a></li>
+<li><a href="#_request_headers">Request Headers</a></li>
 <li><a href="#_http_response">Http Response</a></li>
 <li><a href="#_response_fields">Response Fields</a></li>
 </ul>
 </li>
-<li><a href="#_example_post_api">Example POST API</a>
+</ul>
+</li>
+<li><a href="#_example_api">Example API</a>
+<ul class="sectlevel2">
+<li><a href="#_example_get_api">Example GET API</a>
 <ul class="sectlevel3">
 <li><a href="#_curl_request_2">Curl Request</a></li>
-<li><a href="#_request_fields">Request Fields</a></li>
+<li><a href="#_path_parameters">Path Parameters</a></li>
+<li><a href="#_query_parameters">Query Parameters</a></li>
 <li><a href="#_http_response_2">Http Response</a></li>
 <li><a href="#_response_fields_2">Response Fields</a></li>
+</ul>
+</li>
+<li><a href="#_example_post_api">Example POST API</a>
+<ul class="sectlevel3">
+<li><a href="#_curl_request_3">Curl Request</a></li>
+<li><a href="#_request_fields">Request Fields</a></li>
+<li><a href="#_http_response_3">Http Response</a></li>
+<li><a href="#_response_fields_3">Response Fields</a></li>
 </ul>
 </li>
 </ul>
@@ -473,30 +485,30 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel2">
 <li><a href="#_문서_위젯_목록_조회">문서 위젯 목록 조회</a>
 <ul class="sectlevel3">
-<li><a href="#_curl_request_3">Curl Request</a></li>
-<li><a href="#_path_parameters_2">Path Parameters</a></li>
-<li><a href="#_request_headers">Request Headers</a></li>
-<li><a href="#_http_response_3">Http Response</a></li>
-<li><a href="#_response_fields_3">Response Fields</a></li>
-</ul>
-</li>
-<li><a href="#_선택_텍스트_기반_위젯_생성">선택 텍스트 기반 위젯 생성</a>
-<ul class="sectlevel3">
 <li><a href="#_curl_request_4">Curl Request</a></li>
-<li><a href="#_path_parameters_3">Path Parameters</a></li>
+<li><a href="#_path_parameters_2">Path Parameters</a></li>
 <li><a href="#_request_headers_2">Request Headers</a></li>
-<li><a href="#_request_fields_2">Request Fields</a></li>
 <li><a href="#_http_response_4">Http Response</a></li>
 <li><a href="#_response_fields_4">Response Fields</a></li>
 </ul>
 </li>
-<li><a href="#_위젯_단건_조회">위젯 단건 조회</a>
+<li><a href="#_선택_텍스트_기반_위젯_생성">선택 텍스트 기반 위젯 생성</a>
 <ul class="sectlevel3">
 <li><a href="#_curl_request_5">Curl Request</a></li>
-<li><a href="#_path_parameters_4">Path Parameters</a></li>
+<li><a href="#_path_parameters_3">Path Parameters</a></li>
 <li><a href="#_request_headers_3">Request Headers</a></li>
+<li><a href="#_request_fields_2">Request Fields</a></li>
 <li><a href="#_http_response_5">Http Response</a></li>
 <li><a href="#_response_fields_5">Response Fields</a></li>
+</ul>
+</li>
+<li><a href="#_위젯_단건_조회">위젯 단건 조회</a>
+<ul class="sectlevel3">
+<li><a href="#_curl_request_6">Curl Request</a></li>
+<li><a href="#_path_parameters_4">Path Parameters</a></li>
+<li><a href="#_request_headers_4">Request Headers</a></li>
+<li><a href="#_http_response_6">Http Response</a></li>
+<li><a href="#_response_fields_6">Response Fields</a></li>
 </ul>
 </li>
 </ul>
@@ -505,29 +517,29 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel2">
 <li><a href="#_채팅_세션_목록_조회">채팅 세션 목록 조회</a>
 <ul class="sectlevel3">
-<li><a href="#_curl_request_6">Curl Request</a></li>
-<li><a href="#_path_parameters_5">Path Parameters</a></li>
-<li><a href="#_request_headers_4">Request Headers</a></li>
-<li><a href="#_http_response_6">Http Response</a></li>
-<li><a href="#_response_fields_6">Response Fields</a></li>
-</ul>
-</li>
-<li><a href="#_채팅_메시지_기록_조회">채팅 메시지 기록 조회</a>
-<ul class="sectlevel3">
 <li><a href="#_curl_request_7">Curl Request</a></li>
-<li><a href="#_path_parameters_6">Path Parameters</a></li>
+<li><a href="#_path_parameters_5">Path Parameters</a></li>
 <li><a href="#_request_headers_5">Request Headers</a></li>
 <li><a href="#_http_response_7">Http Response</a></li>
 <li><a href="#_response_fields_7">Response Fields</a></li>
 </ul>
 </li>
-<li><a href="#_질문_전송_및_답변_스트림">질문 전송 및 답변 스트림</a>
+<li><a href="#_채팅_메시지_기록_조회">채팅 메시지 기록 조회</a>
 <ul class="sectlevel3">
 <li><a href="#_curl_request_8">Curl Request</a></li>
-<li><a href="#_path_parameters_7">Path Parameters</a></li>
+<li><a href="#_path_parameters_6">Path Parameters</a></li>
 <li><a href="#_request_headers_6">Request Headers</a></li>
-<li><a href="#_request_fields_3">Request Fields</a></li>
 <li><a href="#_http_response_8">Http Response</a></li>
+<li><a href="#_response_fields_8">Response Fields</a></li>
+</ul>
+</li>
+<li><a href="#_질문_전송_및_답변_스트림">질문 전송 및 답변 스트림</a>
+<ul class="sectlevel3">
+<li><a href="#_curl_request_9">Curl Request</a></li>
+<li><a href="#_path_parameters_7">Path Parameters</a></li>
+<li><a href="#_request_headers_7">Request Headers</a></li>
+<li><a href="#_request_fields_3">Request Fields</a></li>
+<li><a href="#_http_response_9">Http Response</a></li>
 </ul>
 </li>
 </ul>
@@ -545,12 +557,116 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
+<h2 id="_auth_api"><a class="link" href="#_auth_api">Auth API</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_내_인증_정보_조회"><a class="link" href="#_내_인증_정보_조회">내 인증 정보 조회</a></h3>
+<div class="sect3">
+<h4 id="_curl_request"><a class="link" href="#_curl_request">Curl Request</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ curl 'http://localhost:8080/api/v1/auth/me' -i -X GET \
+    -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.e30=.signature'</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_request_headers"><a class="link" href="#_request_headers">Request Headers</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Authorization</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bearer access token</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_http_response"><a class="link" href="#_http_response">Http Response</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 221
+
+{
+  "result" : "SUCCESS",
+  "data" : {
+    "userId" : "11111111-1111-1111-1111-111111111111",
+    "email" : "luna@example.com",
+    "name" : "Luna",
+    "avatarUrl" : "https://example.com/luna.png"
+  },
+  "error" : null
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_response_fields"><a class="link" href="#_response_fields">Response Fields</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Path</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>result</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">응답 결과</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.userId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">인증된 사용자 UUID</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.email</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">사용자 이메일</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.name</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">사용자 표시 이름</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>data.avatarUrl</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">사용자 프로필 이미지 URL</p></td>
+</tr>
+</tbody>
+</table>
+<hr>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_example_api"><a class="link" href="#_example_api">Example API</a></h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_example_get_api"><a class="link" href="#_example_get_api">Example GET API</a></h3>
 <div class="sect3">
-<h4 id="_curl_request"><a class="link" href="#_curl_request">Curl Request</a></h4>
+<h4 id="_curl_request_2"><a class="link" href="#_curl_request_2">Curl Request</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ curl 'http://localhost:8080/api/v1/examples/HELLO_PATH?exampleParam=HELLO_PARAM' -i -X GET \
@@ -602,7 +718,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_http_response"><a class="link" href="#_http_response">Http Response</a></h4>
+<h4 id="_http_response_2"><a class="link" href="#_http_response_2">Http Response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
@@ -610,24 +726,24 @@ Content-Type: application/json
 Content-Length: 236
 
 {
+  "result" : "SUCCESS",
   "data" : {
     "result" : "BYE_GET",
     "date" : "2026-06-05",
-    "datetime" : "2026-06-05T15:23:03.485974153",
+    "datetime" : "2026-06-05T16:19:41.234726978",
     "items" : [ {
       "key" : "1"
     }, {
       "key" : "2"
     } ]
   },
-  "error" : null,
-  "result" : "SUCCESS"
+  "error" : null
 }</code></pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_response_fields"><a class="link" href="#_response_fields">Response Fields</a></h4>
+<h4 id="_response_fields_2"><a class="link" href="#_response_fields_2">Response Fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -680,7 +796,7 @@ Content-Length: 236
 <div class="sect2">
 <h3 id="_example_post_api"><a class="link" href="#_example_post_api">Example POST API</a></h3>
 <div class="sect3">
-<h4 id="_curl_request_2"><a class="link" href="#_curl_request_2">Curl Request</a></h4>
+<h4 id="_curl_request_3"><a class="link" href="#_curl_request_3">Curl Request</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ curl 'http://localhost:8080/api/v1/examples' -i -X POST \
@@ -716,32 +832,32 @@ Content-Length: 236
 </table>
 </div>
 <div class="sect3">
-<h4 id="_http_response_2"><a class="link" href="#_http_response_2">Http Response</a></h4>
+<h4 id="_http_response_3"><a class="link" href="#_http_response_3">Http Response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 236
+Content-Length: 237
 
 {
+  "result" : "SUCCESS",
   "data" : {
     "result" : "BYE_POST",
     "date" : "2026-06-05",
-    "datetime" : "2026-06-05T15:23:03.56074684",
+    "datetime" : "2026-06-05T16:19:41.309878695",
     "items" : [ {
       "key" : "1"
     }, {
       "key" : "2"
     } ]
   },
-  "error" : null,
-  "result" : "SUCCESS"
+  "error" : null
 }</code></pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_response_fields_2"><a class="link" href="#_response_fields_2">Response Fields</a></h4>
+<h4 id="_response_fields_3"><a class="link" href="#_response_fields_3">Response Fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -799,11 +915,11 @@ Content-Length: 236
 <div class="sect2">
 <h3 id="_문서_위젯_목록_조회"><a class="link" href="#_문서_위젯_목록_조회">문서 위젯 목록 조회</a></h3>
 <div class="sect3">
-<h4 id="_curl_request_3"><a class="link" href="#_curl_request_3">Curl Request</a></h4>
+<h4 id="_curl_request_4"><a class="link" href="#_curl_request_4">Curl Request</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ curl 'http://localhost:8080/api/v1/documents/3f4f6b0d-9a8d-48a7-9b7d-8e0acba97c1a/widgets' -i -X GET \
-    -H 'Authorization: Bearer access-token'</code></pre>
+    -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.e30=.signature'</code></pre>
 </div>
 </div>
 </div>
@@ -830,7 +946,7 @@ Content-Length: 236
 </table>
 </div>
 <div class="sect3">
-<h4 id="_request_headers"><a class="link" href="#_request_headers">Request Headers</a></h4>
+<h4 id="_request_headers_2"><a class="link" href="#_request_headers_2">Request Headers</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 50%;">
@@ -851,7 +967,7 @@ Content-Length: 236
 </table>
 </div>
 <div class="sect3">
-<h4 id="_http_response_3"><a class="link" href="#_http_response_3">Http Response</a></h4>
+<h4 id="_http_response_4"><a class="link" href="#_http_response_4">Http Response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
@@ -859,6 +975,7 @@ Content-Type: application/json
 Content-Length: 1751
 
 {
+  "result" : "SUCCESS",
   "data" : {
     "widgets" : [ {
       "widgetId" : "ec274f8e-58b2-4f1b-8e5d-7782f7e65361",
@@ -912,14 +1029,13 @@ Content-Length: 1751
       "updatedAt" : "2026-06-04T09:11:00Z"
     } ]
   },
-  "error" : null,
-  "result" : "SUCCESS"
+  "error" : null
 }</code></pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_response_fields_3"><a class="link" href="#_response_fields_3">Response Fields</a></h4>
+<h4 id="_response_fields_4"><a class="link" href="#_response_fields_4">Response Fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1072,12 +1188,12 @@ Content-Length: 1751
 <div class="sect2">
 <h3 id="_선택_텍스트_기반_위젯_생성"><a class="link" href="#_선택_텍스트_기반_위젯_생성">선택 텍스트 기반 위젯 생성</a></h3>
 <div class="sect3">
-<h4 id="_curl_request_4"><a class="link" href="#_curl_request_4">Curl Request</a></h4>
+<h4 id="_curl_request_5"><a class="link" href="#_curl_request_5">Curl Request</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ curl 'http://localhost:8080/api/v1/documents/3f4f6b0d-9a8d-48a7-9b7d-8e0acba97c1a/widgets' -i -X POST \
     -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer access-token' \
+    -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.e30=.signature' \
     -d '{
   "prompt" : "Create a BFS vs DFS traversal simulator for this selected paragraph.",
   "selection" : {
@@ -1124,7 +1240,7 @@ Content-Length: 1751
 </table>
 </div>
 <div class="sect3">
-<h4 id="_request_headers_2"><a class="link" href="#_request_headers_2">Request Headers</a></h4>
+<h4 id="_request_headers_3"><a class="link" href="#_request_headers_3">Request Headers</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 50%;">
@@ -1219,7 +1335,7 @@ Content-Length: 1751
 </table>
 </div>
 <div class="sect3">
-<h4 id="_http_response_4"><a class="link" href="#_http_response_4">Http Response</a></h4>
+<h4 id="_http_response_5"><a class="link" href="#_http_response_5">Http Response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 201 Created
@@ -1227,6 +1343,7 @@ Content-Type: application/json
 Content-Length: 1625
 
 {
+  "result" : "SUCCESS",
   "data" : {
     "widgetId" : "ec274f8e-58b2-4f1b-8e5d-7782f7e65361",
     "documentId" : "3f4f6b0d-9a8d-48a7-9b7d-8e0acba97c1a",
@@ -1278,14 +1395,13 @@ Content-Length: 1625
     "createdAt" : "2026-06-04T09:11:00Z",
     "updatedAt" : "2026-06-04T09:11:00Z"
   },
-  "error" : null,
-  "result" : "SUCCESS"
+  "error" : null
 }</code></pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_response_fields_4"><a class="link" href="#_response_fields_4">Response Fields</a></h4>
+<h4 id="_response_fields_5"><a class="link" href="#_response_fields_5">Response Fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1433,12 +1549,12 @@ Content-Length: 1625
 <div class="sect2">
 <h3 id="_위젯_단건_조회"><a class="link" href="#_위젯_단건_조회">위젯 단건 조회</a></h3>
 <div class="sect3">
-<h4 id="_curl_request_5"><a class="link" href="#_curl_request_5">Curl Request</a></h4>
+<h4 id="_curl_request_6"><a class="link" href="#_curl_request_6">Curl Request</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ curl 'http://localhost:8080/api/v1/widgets/ec274f8e-58b2-4f1b-8e5d-7782f7e65361' -i -X GET \
     -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer access-token'</code></pre>
+    -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.e30=.signature'</code></pre>
 </div>
 </div>
 </div>
@@ -1465,7 +1581,7 @@ Content-Length: 1625
 </table>
 </div>
 <div class="sect3">
-<h4 id="_request_headers_3"><a class="link" href="#_request_headers_3">Request Headers</a></h4>
+<h4 id="_request_headers_4"><a class="link" href="#_request_headers_4">Request Headers</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 50%;">
@@ -1486,7 +1602,7 @@ Content-Length: 1625
 </table>
 </div>
 <div class="sect3">
-<h4 id="_http_response_5"><a class="link" href="#_http_response_5">Http Response</a></h4>
+<h4 id="_http_response_6"><a class="link" href="#_http_response_6">Http Response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
@@ -1494,6 +1610,7 @@ Content-Type: application/json
 Content-Length: 1625
 
 {
+  "result" : "SUCCESS",
   "data" : {
     "widgetId" : "ec274f8e-58b2-4f1b-8e5d-7782f7e65361",
     "documentId" : "3f4f6b0d-9a8d-48a7-9b7d-8e0acba97c1a",
@@ -1545,14 +1662,13 @@ Content-Length: 1625
     "createdAt" : "2026-06-04T09:11:00Z",
     "updatedAt" : "2026-06-04T09:11:00Z"
   },
-  "error" : null,
-  "result" : "SUCCESS"
+  "error" : null
 }</code></pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_response_fields_5"><a class="link" href="#_response_fields_5">Response Fields</a></h4>
+<h4 id="_response_fields_6"><a class="link" href="#_response_fields_6">Response Fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1705,11 +1821,11 @@ Content-Length: 1625
 <div class="sect2">
 <h3 id="_채팅_세션_목록_조회"><a class="link" href="#_채팅_세션_목록_조회">채팅 세션 목록 조회</a></h3>
 <div class="sect3">
-<h4 id="_curl_request_6"><a class="link" href="#_curl_request_6">Curl Request</a></h4>
+<h4 id="_curl_request_7"><a class="link" href="#_curl_request_7">Curl Request</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ curl 'http://localhost:8080/api/v1/documents/3f4f6b0d-9a8d-48a7-9b7d-8e0acba97c1a/chat-sessions' -i -X GET \
-    -H 'Authorization: Bearer access-token'</code></pre>
+    -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.e30=.signature'</code></pre>
 </div>
 </div>
 </div>
@@ -1736,7 +1852,7 @@ Content-Length: 1625
 </table>
 </div>
 <div class="sect3">
-<h4 id="_request_headers_4"><a class="link" href="#_request_headers_4">Request Headers</a></h4>
+<h4 id="_request_headers_5"><a class="link" href="#_request_headers_5">Request Headers</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 50%;">
@@ -1757,7 +1873,7 @@ Content-Length: 1625
 </table>
 </div>
 <div class="sect3">
-<h4 id="_http_response_6"><a class="link" href="#_http_response_6">Http Response</a></h4>
+<h4 id="_http_response_7"><a class="link" href="#_http_response_7">Http Response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
@@ -1765,6 +1881,7 @@ Content-Type: application/json
 Content-Length: 907
 
 {
+  "result" : "SUCCESS",
   "data" : {
     "sessions" : [ {
       "chatSessionId" : "83c65b2b-4207-4c16-a91c-f691d50d5c88",
@@ -1788,14 +1905,13 @@ Content-Length: 907
       "updatedAt" : "2026-06-05T04:21:13Z"
     } ]
   },
-  "error" : null,
-  "result" : "SUCCESS"
+  "error" : null
 }</code></pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_response_fields_6"><a class="link" href="#_response_fields_6">Response Fields</a></h4>
+<h4 id="_response_fields_7"><a class="link" href="#_response_fields_7">Response Fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -1898,11 +2014,11 @@ Content-Length: 907
 <div class="sect2">
 <h3 id="_채팅_메시지_기록_조회"><a class="link" href="#_채팅_메시지_기록_조회">채팅 메시지 기록 조회</a></h3>
 <div class="sect3">
-<h4 id="_curl_request_7"><a class="link" href="#_curl_request_7">Curl Request</a></h4>
+<h4 id="_curl_request_8"><a class="link" href="#_curl_request_8">Curl Request</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ curl 'http://localhost:8080/api/v1/chat-sessions/83c65b2b-4207-4c16-a91c-f691d50d5c88/messages' -i -X GET \
-    -H 'Authorization: Bearer access-token'</code></pre>
+    -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.e30=.signature'</code></pre>
 </div>
 </div>
 </div>
@@ -1929,7 +2045,7 @@ Content-Length: 907
 </table>
 </div>
 <div class="sect3">
-<h4 id="_request_headers_5"><a class="link" href="#_request_headers_5">Request Headers</a></h4>
+<h4 id="_request_headers_6"><a class="link" href="#_request_headers_6">Request Headers</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 50%;">
@@ -1950,7 +2066,7 @@ Content-Length: 907
 </table>
 </div>
 <div class="sect3">
-<h4 id="_http_response_7"><a class="link" href="#_http_response_7">Http Response</a></h4>
+<h4 id="_http_response_8"><a class="link" href="#_http_response_8">Http Response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
@@ -1958,6 +2074,7 @@ Content-Type: application/json
 Content-Length: 1662
 
 {
+  "result" : "SUCCESS",
   "data" : {
     "chatSession" : {
       "chatSessionId" : "83c65b2b-4207-4c16-a91c-f691d50d5c88",
@@ -1998,14 +2115,13 @@ Content-Length: 1662
       "createdAt" : "2026-06-05T04:21:13Z"
     } ]
   },
-  "error" : null,
-  "result" : "SUCCESS"
+  "error" : null
 }</code></pre>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_response_fields_7"><a class="link" href="#_response_fields_7">Response Fields</a></h4>
+<h4 id="_response_fields_8"><a class="link" href="#_response_fields_8">Response Fields</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -2148,13 +2264,13 @@ Content-Length: 1662
 <div class="sect2">
 <h3 id="_질문_전송_및_답변_스트림"><a class="link" href="#_질문_전송_및_답변_스트림">질문 전송 및 답변 스트림</a></h3>
 <div class="sect3">
-<h4 id="_curl_request_8"><a class="link" href="#_curl_request_8">Curl Request</a></h4>
+<h4 id="_curl_request_9"><a class="link" href="#_curl_request_9">Curl Request</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ curl 'http://localhost:8080/api/v1/documents/3f4f6b0d-9a8d-48a7-9b7d-8e0acba97c1a/chat-messages/stream' -i -X POST \
     -H 'Content-Type: application/json' \
     -H 'Accept: text/event-stream' \
-    -H 'Authorization: Bearer access-token' \
+    -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.e30=.signature' \
     -d '{
   "chatSessionId" : null,
   "content" : "Explain the difference between BFS and DFS in this tree context.",
@@ -2198,7 +2314,7 @@ Content-Length: 1662
 </table>
 </div>
 <div class="sect3">
-<h4 id="_request_headers_6"><a class="link" href="#_request_headers_6">Request Headers</a></h4>
+<h4 id="_request_headers_7"><a class="link" href="#_request_headers_7">Request Headers</a></h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 50%;">
@@ -2288,7 +2404,7 @@ Content-Length: 1662
 </table>
 </div>
 <div class="sect3">
-<h4 id="_http_response_8"><a class="link" href="#_http_response_8">Http Response</a></h4>
+<h4 id="_http_response_9"><a class="link" href="#_http_response_9">Http Response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
@@ -2313,7 +2429,7 @@ data:{"chatSessionId":"83c65b2b-4207-4c16-a91c-f691d50d5c88","assistantMessage":
 <div id="footer">
 <div id="footer-text">
 Version 0.0.1-SNAPSHOT<br>
-Last updated 2026-06-05 15:21:10 UTC
+Last updated 2026-06-05 16:17:15 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>

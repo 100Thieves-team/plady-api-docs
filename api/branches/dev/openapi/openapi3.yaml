@@ -1,0 +1,1288 @@
+openapi: 3.0.1
+info:
+  title: Plady API
+  description: Plady REST API contract generated from Spring REST Docs
+  version: 0.0.1-SNAPSHOT
+servers:
+- url: http://localhost:8080
+tags: []
+paths:
+  /api/v1/examples:
+    post:
+      tags:
+      - api
+      summary: 예제 POST 생성
+      description: JSON 요청 body를 받아 예제 응답을 반환한다.
+      operationId: examplePost
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/api-v1-examples-1780624183"
+            examples:
+              examplePost:
+                value: |-
+                  {
+                    "data" : "HELLO_BODY"
+                  }
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-examples-exampleValue191457252"
+              examples:
+                examplePost:
+                  value: |-
+                    {
+                      "result" : "SUCCESS",
+                      "data" : {
+                        "result" : "BYE_POST",
+                        "date" : "2026-06-05",
+                        "datetime" : "2026-06-05T16:19:41.309878695",
+                        "items" : [ {
+                          "key" : "1"
+                        }, {
+                          "key" : "2"
+                        } ]
+                      },
+                      "error" : null
+                    }
+  /api/v1/auth/me:
+    get:
+      tags:
+      - api
+      summary: 내 인증 정보 조회
+      description: Bearer access token으로 인증된 현재 사용자 정보를 조회한다.
+      operationId: authMe
+      parameters:
+      - name: Authorization
+        in: header
+        description: Bearer access token
+        required: true
+        schema:
+          type: string
+        example: Bearer eyJhbGciOiJIUzI1NiJ9.e30=.signature
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-auth-me-649537412"
+              examples:
+                authMe:
+                  value: |-
+                    {
+                      "result" : "SUCCESS",
+                      "data" : {
+                        "userId" : "11111111-1111-1111-1111-111111111111",
+                        "email" : "luna@example.com",
+                        "name" : "Luna",
+                        "avatarUrl" : "https://example.com/luna.png"
+                      },
+                      "error" : null
+                    }
+      security:
+      - bearerAuthJWT: []
+  /api/v1/examples/{exampleValue}:
+    get:
+      tags:
+      - api
+      summary: 예제 GET 조회
+      description: path 변수와 query parameter를 받아 예제 응답을 반환한다.
+      operationId: exampleGet
+      parameters:
+      - name: exampleValue
+        in: path
+        description: ExampleValue
+        required: true
+        schema:
+          type: string
+      - name: exampleParam
+        in: query
+        description: ExampleParam
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-examples-exampleValue191457252"
+              examples:
+                exampleGet:
+                  value: |-
+                    {
+                      "result" : "SUCCESS",
+                      "data" : {
+                        "result" : "BYE_GET",
+                        "date" : "2026-06-05",
+                        "datetime" : "2026-06-05T16:19:41.234726978",
+                        "items" : [ {
+                          "key" : "1"
+                        }, {
+                          "key" : "2"
+                        } ]
+                      },
+                      "error" : null
+                    }
+  /api/v1/widgets/{widgetId}:
+    get:
+      tags:
+      - api
+      summary: 위젯 단건 조회
+      description: "생성된 학습 위젯과 선택 영역 snapshot, json-render spec을 조회한다."
+      operationId: widgetGet
+      parameters:
+      - name: widgetId
+        in: path
+        description: 조회할 widget UUID
+        required: true
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: Bearer access token
+        required: true
+        schema:
+          type: string
+        example: Bearer eyJhbGciOiJIUzI1NiJ9.e30=.signature
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-documents-documentId-widgets-1783790244"
+              examples:
+                widgetGet:
+                  value: |-
+                    {
+                      "result" : "SUCCESS",
+                      "data" : {
+                        "widgetId" : "ec274f8e-58b2-4f1b-8e5d-7782f7e65361",
+                        "documentId" : "3f4f6b0d-9a8d-48a7-9b7d-8e0acba97c1a",
+                        "title" : "BFS vs DFS Traversal Simulator",
+                        "catalogSelection" : {
+                          "conceptPath" : "data-structures.tree-traversal",
+                          "operation" : "visualize-traversal",
+                          "widgetType" : "TREE_TRAVERSAL_SIMULATOR"
+                        },
+                        "generation" : {
+                          "prompt" : "Create a BFS vs DFS traversal simulator for this selected paragraph.",
+                          "triggerType" : "INLINE_SELECTION",
+                          "sourceMessageId" : null,
+                          "model" : "deterministic-poc-widget-generator"
+                        },
+                        "source" : "AI_GENERATED",
+                        "status" : "READY",
+                        "selectionSnapshot" : {
+                          "selectedText" : "Breadth-First Search (BFS) and Depth-First Search (DFS) are the standard algorithms used to traverse or search tree data structures.",
+                          "pageNumber" : 4,
+                          "selectionAnchor" : {
+                            "rects" : [ {
+                              "pageNumber" : 4,
+                              "x" : 72.4,
+                              "y" : 512.8,
+                              "width" : 420.2,
+                              "height" : 18.6
+                            } ]
+                          }
+                        },
+                        "widgetSpec" : {
+                          "root" : {
+                            "type" : "TreeTraversalSimulator",
+                            "props" : {
+                              "title" : "BFS vs DFS Traversal Simulator",
+                              "initialMode" : "BFS",
+                              "tree" : {
+                                "root" : 8,
+                                "nodes" : [ {
+                                  "id" : "8",
+                                  "value" : 8,
+                                  "left" : "3",
+                                  "right" : "10"
+                                } ]
+                              }
+                            }
+                          }
+                        },
+                        "createdAt" : "2026-06-04T09:11:00Z",
+                        "updatedAt" : "2026-06-04T09:11:00Z"
+                      },
+                      "error" : null
+                    }
+      security:
+      - bearerAuthJWT: []
+  /api/v1/chat-sessions/{chatSessionId}/messages:
+    get:
+      tags:
+      - api
+      summary: 채팅 메시지 목록 조회
+      description: 채팅 세션의 메시지 목록과 메시지별 선택 영역 context를 조회한다.
+      operationId: chatMessageList
+      parameters:
+      - name: chatSessionId
+        in: path
+        description: 메시지를 조회할 chat session UUID
+        required: true
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: Bearer access token
+        required: true
+        schema:
+          type: string
+        example: Bearer eyJhbGciOiJIUzI1NiJ9.e30=.signature
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-chat-sessions-chatSessionId-messages-785698120"
+              examples:
+                chatMessageList:
+                  value: |-
+                    {
+                      "result" : "SUCCESS",
+                      "data" : {
+                        "chatSession" : {
+                          "chatSessionId" : "83c65b2b-4207-4c16-a91c-f691d50d5c88",
+                          "documentId" : "3f4f6b0d-9a8d-48a7-9b7d-8e0acba97c1a",
+                          "title" : "BFS와 DFS 차이",
+                          "selectionSnapshot" : null,
+                          "lastMessagePreview" : "BFS는 레벨별로 탐색하고 DFS는 한 분기를 끝까지 따라간 뒤 되돌아옵니다.",
+                          "createdAt" : "2026-06-05T04:20Z",
+                          "updatedAt" : "2026-06-05T04:21:13Z"
+                        },
+                        "messages" : [ {
+                          "chatMessageId" : "f596bd28-1135-4ef3-9270-e8e2e583d838",
+                          "chatSessionId" : "83c65b2b-4207-4c16-a91c-f691d50d5c88",
+                          "role" : "USER",
+                          "content" : "Explain the difference between BFS and DFS in this tree context.",
+                          "model" : null,
+                          "selectionSnapshot" : {
+                            "selectedText" : "Breadth-First Search (BFS) and Depth-First Search (DFS) are the standard algorithms used to traverse or search tree data structures.",
+                            "pageNumber" : 4,
+                            "selectionAnchor" : {
+                              "rects" : [ {
+                                "pageNumber" : 4,
+                                "x" : 72.4,
+                                "y" : 512.8,
+                                "width" : 420.2,
+                                "height" : 18.6
+                              } ]
+                            }
+                          },
+                          "createdAt" : "2026-06-05T04:20Z"
+                        }, {
+                          "chatMessageId" : "4e320c7e-e216-4074-bf32-0d239dd9dd6c",
+                          "chatSessionId" : "83c65b2b-4207-4c16-a91c-f691d50d5c88",
+                          "role" : "ASSISTANT",
+                          "content" : "BFS는 레벨별로 탐색하고 DFS는 한 분기를 끝까지 따라간 뒤 되돌아옵니다.",
+                          "model" : "gpt-4.1-mini",
+                          "selectionSnapshot" : null,
+                          "createdAt" : "2026-06-05T04:21:13Z"
+                        } ]
+                      },
+                      "error" : null
+                    }
+      security:
+      - bearerAuthJWT: []
+  /api/v1/documents/{documentId}/chat-sessions:
+    get:
+      tags:
+      - api
+      summary: 문서 채팅 세션 목록 조회
+      description: 문서 화면 진입 시 복원할 채팅 세션 목록과 선택 영역 context를 조회한다.
+      operationId: chatSessionList
+      parameters:
+      - name: documentId
+        in: path
+        description: 채팅 세션 목록을 조회할 document UUID
+        required: true
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: Bearer access token
+        required: true
+        schema:
+          type: string
+        example: Bearer eyJhbGciOiJIUzI1NiJ9.e30=.signature
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-documents-documentId-chat-sessions-2011013592"
+              examples:
+                chatSessionList:
+                  value: |-
+                    {
+                      "result" : "SUCCESS",
+                      "data" : {
+                        "sessions" : [ {
+                          "chatSessionId" : "83c65b2b-4207-4c16-a91c-f691d50d5c88",
+                          "documentId" : "3f4f6b0d-9a8d-48a7-9b7d-8e0acba97c1a",
+                          "title" : "BFS와 DFS 차이",
+                          "selectionSnapshot" : {
+                            "selectedText" : "Breadth-First Search (BFS) and Depth-First Search (DFS) are the standard algorithms used to traverse or search tree data structures.",
+                            "pageNumber" : 4,
+                            "selectionAnchor" : {
+                              "rects" : [ {
+                                "pageNumber" : 4,
+                                "x" : 72.4,
+                                "y" : 512.8,
+                                "width" : 420.2,
+                                "height" : 18.6
+                              } ]
+                            }
+                          },
+                          "lastMessagePreview" : "BFS는 레벨별로 탐색하고 DFS는 한 분기를 끝까지 따라간 뒤 되돌아옵니다.",
+                          "createdAt" : "2026-06-05T04:20Z",
+                          "updatedAt" : "2026-06-05T04:21:13Z"
+                        } ]
+                      },
+                      "error" : null
+                    }
+      security:
+      - bearerAuthJWT: []
+  /api/v1/documents/{documentId}/widgets:
+    get:
+      tags:
+      - api
+      summary: 문서 위젯 목록 조회
+      description: 문서 화면 진입 시 복원할 위젯과 선택 영역 snapshot 목록을 조회한다.
+      operationId: documentWidgetList
+      parameters:
+      - name: documentId
+        in: path
+        description: 위젯 목록을 조회할 document UUID
+        required: true
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: Bearer access token
+        required: true
+        schema:
+          type: string
+        example: Bearer eyJhbGciOiJIUzI1NiJ9.e30=.signature
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-documents-documentId-widgets-579598753"
+              examples:
+                documentWidgetList:
+                  value: |-
+                    {
+                      "result" : "SUCCESS",
+                      "data" : {
+                        "widgets" : [ {
+                          "widgetId" : "ec274f8e-58b2-4f1b-8e5d-7782f7e65361",
+                          "documentId" : "3f4f6b0d-9a8d-48a7-9b7d-8e0acba97c1a",
+                          "title" : "BFS vs DFS Traversal Simulator",
+                          "catalogSelection" : {
+                            "conceptPath" : "data-structures.tree-traversal",
+                            "operation" : "visualize-traversal",
+                            "widgetType" : "TREE_TRAVERSAL_SIMULATOR"
+                          },
+                          "generation" : {
+                            "prompt" : "Create a BFS vs DFS traversal simulator for this selected paragraph.",
+                            "triggerType" : "INLINE_SELECTION",
+                            "sourceMessageId" : null,
+                            "model" : "deterministic-poc-widget-generator"
+                          },
+                          "source" : "AI_GENERATED",
+                          "status" : "READY",
+                          "selectionSnapshot" : {
+                            "selectedText" : "Breadth-First Search (BFS) and Depth-First Search (DFS) are the standard algorithms used to traverse or search tree data structures.",
+                            "pageNumber" : 4,
+                            "selectionAnchor" : {
+                              "rects" : [ {
+                                "pageNumber" : 4,
+                                "x" : 72.4,
+                                "y" : 512.8,
+                                "width" : 420.2,
+                                "height" : 18.6
+                              } ]
+                            }
+                          },
+                          "widgetSpec" : {
+                            "root" : {
+                              "type" : "TreeTraversalSimulator",
+                              "props" : {
+                                "title" : "BFS vs DFS Traversal Simulator",
+                                "initialMode" : "BFS",
+                                "tree" : {
+                                  "root" : 8,
+                                  "nodes" : [ {
+                                    "id" : "8",
+                                    "value" : 8,
+                                    "left" : "3",
+                                    "right" : "10"
+                                  } ]
+                                }
+                              }
+                            }
+                          },
+                          "createdAt" : "2026-06-04T09:11:00Z",
+                          "updatedAt" : "2026-06-04T09:11:00Z"
+                        } ]
+                      },
+                      "error" : null
+                    }
+      security:
+      - bearerAuthJWT: []
+    post:
+      tags:
+      - api
+      summary: 선택 영역 기반 위젯 생성
+      description: 문서에서 드래그한 선택 영역과 prompt를 기반으로 학습 위젯을 생성한다.
+      operationId: widgetCreateFromSelection
+      parameters:
+      - name: documentId
+        in: path
+        description: 위젯을 생성할 상위 document UUID
+        required: true
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: Bearer access token
+        required: true
+        schema:
+          type: string
+        example: Bearer eyJhbGciOiJIUzI1NiJ9.e30=.signature
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/api-v1-documents-documentId-widgets1884581598"
+            examples:
+              widgetCreateFromSelection:
+                value: |-
+                  {
+                    "prompt" : "Create a BFS vs DFS traversal simulator for this selected paragraph.",
+                    "selection" : {
+                      "selectedText" : "Breadth-First Search (BFS) and Depth-First Search (DFS) are the standard algorithms used to traverse or search tree data structures.",
+                      "pageNumber" : 4,
+                      "selectionAnchor" : {
+                        "rects" : [ {
+                          "pageNumber" : 4,
+                          "x" : 72.4,
+                          "y" : 512.8,
+                          "width" : 420.2,
+                          "height" : 18.6
+                        } ]
+                      }
+                    },
+                    "trigger" : {
+                      "type" : "INLINE_SELECTION",
+                      "sourceMessageId" : null
+                    }
+                  }
+      responses:
+        "201":
+          description: "201"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-documents-documentId-widgets-1783790244"
+              examples:
+                widgetCreateFromSelection:
+                  value: |-
+                    {
+                      "result" : "SUCCESS",
+                      "data" : {
+                        "widgetId" : "ec274f8e-58b2-4f1b-8e5d-7782f7e65361",
+                        "documentId" : "3f4f6b0d-9a8d-48a7-9b7d-8e0acba97c1a",
+                        "title" : "BFS vs DFS Traversal Simulator",
+                        "catalogSelection" : {
+                          "conceptPath" : "data-structures.tree-traversal",
+                          "operation" : "visualize-traversal",
+                          "widgetType" : "TREE_TRAVERSAL_SIMULATOR"
+                        },
+                        "generation" : {
+                          "prompt" : "Create a BFS vs DFS traversal simulator for this selected paragraph.",
+                          "triggerType" : "INLINE_SELECTION",
+                          "sourceMessageId" : null,
+                          "model" : "deterministic-poc-widget-generator"
+                        },
+                        "source" : "AI_GENERATED",
+                        "status" : "READY",
+                        "selectionSnapshot" : {
+                          "selectedText" : "Breadth-First Search (BFS) and Depth-First Search (DFS) are the standard algorithms used to traverse or search tree data structures.",
+                          "pageNumber" : 4,
+                          "selectionAnchor" : {
+                            "rects" : [ {
+                              "pageNumber" : 4,
+                              "x" : 72.4,
+                              "y" : 512.8,
+                              "width" : 420.2,
+                              "height" : 18.6
+                            } ]
+                          }
+                        },
+                        "widgetSpec" : {
+                          "root" : {
+                            "type" : "TreeTraversalSimulator",
+                            "props" : {
+                              "title" : "BFS vs DFS Traversal Simulator",
+                              "initialMode" : "BFS",
+                              "tree" : {
+                                "root" : 8,
+                                "nodes" : [ {
+                                  "id" : "8",
+                                  "value" : 8,
+                                  "left" : "3",
+                                  "right" : "10"
+                                } ]
+                              }
+                            }
+                          }
+                        },
+                        "createdAt" : "2026-06-04T09:11:00Z",
+                        "updatedAt" : "2026-06-04T09:11:00Z"
+                      },
+                      "error" : null
+                    }
+      security:
+      - bearerAuthJWT: []
+  /api/v1/documents/{documentId}/chat-messages/stream:
+    post:
+      tags:
+      - api
+      summary: 선택 영역 기반 채팅 메시지 스트림
+      description: 문서 선택 영역과 사용자 질문을 받아 assistant 답변을 text/event-stream으로 반환한다.
+      operationId: chatMessageStreamFromSelection
+      parameters:
+      - name: documentId
+        in: path
+        description: 채팅 메시지를 보낼 document UUID
+        required: true
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: Bearer access token
+        required: true
+        schema:
+          type: string
+        example: Bearer eyJhbGciOiJIUzI1NiJ9.e30=.signature
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/api-v1-documents-documentId-chat-messages-stream3047155"
+            examples:
+              chatMessageStreamFromSelection:
+                value: |-
+                  {
+                    "chatSessionId" : null,
+                    "content" : "Explain the difference between BFS and DFS in this tree context.",
+                    "selection" : {
+                      "selectedText" : "Breadth-First Search (BFS) and Depth-First Search (DFS) are the standard algorithms used to traverse or search tree data structures.",
+                      "pageNumber" : 4,
+                      "selectionAnchor" : {
+                        "rects" : [ {
+                          "pageNumber" : 4,
+                          "x" : 72.4,
+                          "y" : 512.8,
+                          "width" : 420.2,
+                          "height" : 18.6
+                        } ]
+                      }
+                    }
+                  }
+      responses:
+        "200":
+          description: "200"
+          content:
+            text/event-stream:
+              schema:
+                $ref: "#/components/schemas/api-v1-documents-documentId-chat-messages-stream-33084672"
+              examples:
+                chatMessageStreamFromSelection:
+                  value: |+
+                    event:chat-session
+                    data:{"chatSessionId":"83c65b2b-4207-4c16-a91c-f691d50d5c88","documentId":"3f4f6b0d-9a8d-48a7-9b7d-8e0acba97c1a","title":"BFS? DFS ??","userMessageId":"f596bd28-1135-4ef3-9270-e8e2e583d838","createdAt":"2026-06-05T04:20Z","newSession":true}
+
+                    event:assistant-message-delta
+                    data:{"chatSessionId":"83c65b2b-4207-4c16-a91c-f691d50d5c88","sequence":1,"delta":"BFS? ???? ???? DFS? ? ??? ??? ??? ? ??????."}
+
+                    event:assistant-message-completed
+                    data:{"chatSessionId":"83c65b2b-4207-4c16-a91c-f691d50d5c88","assistantMessage":{"chatMessageId":"4e320c7e-e216-4074-bf32-0d239dd9dd6c","chatSessionId":"83c65b2b-4207-4c16-a91c-f691d50d5c88","role":"ASSISTANT","content":"BFS? ???? ???? DFS? ? ??? ??? ??? ? ??????.","model":"gpt-4.1-mini","selectionSnapshot":null,"createdAt":"2026-06-05T04:21:13Z"}}
+
+      security:
+      - bearerAuthJWT: []
+components:
+  schemas:
+    api-v1-documents-documentId-widgets-1783790244:
+      required:
+      - result
+      type: object
+      properties:
+        result:
+          type: string
+          description: 응답 결과
+        data:
+          required:
+          - createdAt
+          - documentId
+          - source
+          - status
+          - title
+          - updatedAt
+          - widgetId
+          type: object
+          properties:
+            generation:
+              required:
+              - prompt
+              - triggerType
+              type: object
+              properties:
+                model:
+                  type: string
+                  description: 생성에 사용한 모델명
+                  nullable: true
+                triggerType:
+                  type: string
+                  description: 위젯 생성 trigger
+                prompt:
+                  type: string
+                  description: 위젯 생성 prompt
+            catalogSelection:
+              required:
+              - conceptPath
+              - operation
+              - widgetType
+              type: object
+              properties:
+                conceptPath:
+                  type: string
+                  description: 자료구조 개념 경로
+                operation:
+                  type: string
+                  description: 개념에서 수행할 학습/시각화 동작
+                widgetType:
+                  type: string
+                  description: 프론트 registry와 검증 로직에서 쓰는 widget type
+            createdAt:
+              type: string
+              description: ISO-8601 생성 시각
+            widgetId:
+              type: string
+              description: 생성된 widget UUID
+            selectionSnapshot:
+              required:
+              - pageNumber
+              - selectedText
+              type: object
+              properties:
+                pageNumber:
+                  type: number
+                  description: 선택 시작 page number
+                selectedText:
+                  type: string
+                  description: 저장된 선택 텍스트
+                selectionAnchor:
+                  required:
+                  - rects
+                  type: object
+                  properties:
+                    rects:
+                      type: array
+                      description: 저장된 rect 목록
+                      items:
+                        required:
+                        - height
+                        - pageNumber
+                        - width
+                        - x
+                        - "y"
+                        type: object
+                        properties:
+                          pageNumber:
+                            type: number
+                            description: rect page number
+                          width:
+                            type: number
+                            description: PDF point width
+                          x:
+                            type: number
+                            description: PDF point x
+                          "y":
+                            type: number
+                            description: PDF point y
+                          height:
+                            type: number
+                            description: PDF point height
+            documentId:
+              type: string
+              description: 상위 document UUID
+            source:
+              type: string
+              description: 위젯 생성 출처
+            title:
+              type: string
+              description: UI 표시용 위젯 제목
+            updatedAt:
+              type: string
+              description: ISO-8601 수정 시각
+            widgetSpec:
+              type: object
+              properties:
+                root:
+                  required:
+                  - props
+                  - type
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                      description: json-render root component type
+                    props:
+                      type: object
+                      description: component별 props subtree
+            status:
+              type: string
+              description: 위젯 생성 상태
+    api-v1-chat-sessions-chatSessionId-messages-785698120:
+      required:
+      - result
+      type: object
+      properties:
+        result:
+          type: string
+          description: 응답 결과
+        data:
+          required:
+          - messages
+          type: object
+          properties:
+            chatSession:
+              required:
+              - chatSessionId
+              - createdAt
+              - documentId
+              - lastMessagePreview
+              - title
+              - updatedAt
+              type: object
+              properties:
+                createdAt:
+                  type: string
+                  description: ISO-8601 생성 시각
+                lastMessagePreview:
+                  type: string
+                  description: 마지막 메시지 preview
+                documentId:
+                  type: string
+                  description: document UUID
+                chatSessionId:
+                  type: string
+                  description: 채팅 세션 UUID
+                title:
+                  type: string
+                  description: 세션 제목
+                updatedAt:
+                  type: string
+                  description: ISO-8601 갱신 시각
+            messages:
+              type: array
+              description: 생성 시각 오름차순 메시지 목록
+              items:
+                required:
+                - chatMessageId
+                - chatSessionId
+                - content
+                - createdAt
+                - role
+                type: object
+                properties:
+                  createdAt:
+                    type: string
+                    description: ISO-8601 생성 시각
+                  role:
+                    type: string
+                    description: 메시지 역할
+                  chatMessageId:
+                    type: string
+                    description: 메시지 UUID
+                  selectionSnapshot:
+                    type: object
+                    properties:
+                      pageNumber:
+                        type: number
+                        description: 선택 시작 page number
+                        nullable: true
+                      selectedText:
+                        type: string
+                        description: 선택 텍스트
+                        nullable: true
+                      selectionAnchor:
+                        type: object
+                        properties:
+                          rects:
+                            type: array
+                            description: PDF point rect 목록
+                            items:
+                              type: object
+                              properties:
+                                pageNumber:
+                                  type: number
+                                  description: rect page number
+                                  nullable: true
+                                width:
+                                  type: number
+                                  description: PDF point width
+                                  nullable: true
+                                x:
+                                  type: number
+                                  description: PDF point x
+                                  nullable: true
+                                "y":
+                                  type: number
+                                  description: PDF point y
+                                  nullable: true
+                                height:
+                                  type: number
+                                  description: PDF point height
+                                  nullable: true
+                    description: 선택 기반 user message context. 없으면 null
+                  model:
+                    type: object
+                    description: assistant 생성 모델. user 메시지는 null
+                    nullable: true
+                  chatSessionId:
+                    type: string
+                    description: 채팅 세션 UUID
+                  content:
+                    type: string
+                    description: 메시지 본문
+    api-v1-examples-1780624183:
+      required:
+      - data
+      type: object
+      properties:
+        data:
+          type: string
+          description: ExampleBody Data Field
+    api-v1-auth-me-649537412:
+      required:
+      - result
+      type: object
+      properties:
+        result:
+          type: string
+          description: 응답 결과
+        data:
+          required:
+          - email
+          - name
+          - userId
+          type: object
+          properties:
+            avatarUrl:
+              type: string
+              description: 사용자 프로필 이미지 URL
+              nullable: true
+            name:
+              type: string
+              description: 사용자 표시 이름
+            userId:
+              type: string
+              description: 인증된 사용자 UUID
+            email:
+              type: string
+              description: 사용자 이메일
+    api-v1-documents-documentId-chat-messages-stream-33084672:
+      type: object
+    api-v1-documents-documentId-chat-sessions-2011013592:
+      required:
+      - result
+      type: object
+      properties:
+        result:
+          type: string
+          description: 응답 결과
+        data:
+          required:
+          - sessions
+          type: object
+          properties:
+            sessions:
+              type: array
+              description: 채팅 세션 목록
+              items:
+                required:
+                - chatSessionId
+                - createdAt
+                - documentId
+                - lastMessagePreview
+                - title
+                - updatedAt
+                type: object
+                properties:
+                  createdAt:
+                    type: string
+                    description: ISO-8601 생성 시각
+                  lastMessagePreview:
+                    type: string
+                    description: 마지막 메시지 preview
+                  selectionSnapshot:
+                    required:
+                    - pageNumber
+                    - selectedText
+                    type: object
+                    properties:
+                      pageNumber:
+                        type: number
+                        description: 선택 시작 page number
+                      selectedText:
+                        type: string
+                        description: 세션 최초 선택 텍스트
+                      selectionAnchor:
+                        required:
+                        - rects
+                        type: object
+                        properties:
+                          rects:
+                            type: array
+                            description: PDF point rect 목록
+                            items:
+                              required:
+                              - height
+                              - pageNumber
+                              - width
+                              - x
+                              - "y"
+                              type: object
+                              properties:
+                                pageNumber:
+                                  type: number
+                                  description: rect page number
+                                width:
+                                  type: number
+                                  description: PDF point width
+                                x:
+                                  type: number
+                                  description: PDF point x
+                                "y":
+                                  type: number
+                                  description: PDF point y
+                                height:
+                                  type: number
+                                  description: PDF point height
+                  documentId:
+                    type: string
+                    description: document UUID
+                  chatSessionId:
+                    type: string
+                    description: 채팅 세션 UUID
+                  title:
+                    type: string
+                    description: 목록 표시용 제목
+                  updatedAt:
+                    type: string
+                    description: ISO-8601 갱신 시각
+    api-v1-documents-documentId-widgets1884581598:
+      required:
+      - prompt
+      type: object
+      properties:
+        selection:
+          required:
+          - pageNumber
+          - selectedText
+          type: object
+          properties:
+            pageNumber:
+              type: number
+              description: 선택 시작 지점의 1-based PDF page number
+            selectedText:
+              type: string
+              description: 사용자가 드래그한 원문 텍스트
+            selectionAnchor:
+              required:
+              - rects
+              type: object
+              properties:
+                rects:
+                  type: array
+                  description: PDF point 기준 선택 영역 rect 목록
+                  items:
+                    required:
+                    - height
+                    - pageNumber
+                    - width
+                    - x
+                    - "y"
+                    type: object
+                    properties:
+                      pageNumber:
+                        type: number
+                        description: rect가 속한 1-based PDF page
+                      width:
+                        type: number
+                        description: PDF point 기준 rect 너비
+                      x:
+                        type: number
+                        description: PDF page point 좌표계의 x
+                      "y":
+                        type: number
+                        description: PDF page point 좌표계의 y
+                      height:
+                        type: number
+                        description: PDF point 기준 rect 높이
+        trigger:
+          type: object
+          properties:
+            type:
+              type: string
+              description: 위젯 생성 출처
+              nullable: true
+        prompt:
+          type: string
+          description: 위젯 생성을 요청하는 사용자 prompt
+    api-v1-documents-documentId-widgets-579598753:
+      required:
+      - result
+      type: object
+      properties:
+        result:
+          type: string
+          description: 응답 결과
+        data:
+          required:
+          - widgets
+          type: object
+          properties:
+            widgets:
+              type: array
+              description: document에 속한 active 위젯 목록. 없으면 빈 배열
+              items:
+                required:
+                - createdAt
+                - documentId
+                - source
+                - status
+                - title
+                - updatedAt
+                - widgetId
+                type: object
+                properties:
+                  generation:
+                    required:
+                    - prompt
+                    - triggerType
+                    type: object
+                    properties:
+                      model:
+                        type: string
+                        description: 생성에 사용한 모델명
+                        nullable: true
+                      triggerType:
+                        type: string
+                        description: 위젯 생성 trigger
+                      prompt:
+                        type: string
+                        description: 위젯 생성 prompt
+                  catalogSelection:
+                    required:
+                    - conceptPath
+                    - operation
+                    - widgetType
+                    type: object
+                    properties:
+                      conceptPath:
+                        type: string
+                        description: 자료구조 개념 경로
+                      operation:
+                        type: string
+                        description: 개념에서 수행할 학습/시각화 동작
+                      widgetType:
+                        type: string
+                        description: 프론트 registry와 검증 로직에서 쓰는 widget type
+                  createdAt:
+                    type: string
+                    description: ISO-8601 생성 시각
+                  widgetId:
+                    type: string
+                    description: widget UUID
+                  selectionSnapshot:
+                    required:
+                    - pageNumber
+                    - selectedText
+                    type: object
+                    properties:
+                      pageNumber:
+                        type: number
+                        description: 선택 시작 page number
+                      selectedText:
+                        type: string
+                        description: 저장된 선택 텍스트
+                      selectionAnchor:
+                        required:
+                        - rects
+                        type: object
+                        properties:
+                          rects:
+                            type: array
+                            description: 저장된 rect 목록
+                            items:
+                              required:
+                              - height
+                              - pageNumber
+                              - width
+                              - x
+                              - "y"
+                              type: object
+                              properties:
+                                pageNumber:
+                                  type: number
+                                  description: rect page number
+                                width:
+                                  type: number
+                                  description: PDF point width
+                                x:
+                                  type: number
+                                  description: PDF point x
+                                "y":
+                                  type: number
+                                  description: PDF point y
+                                height:
+                                  type: number
+                                  description: PDF point height
+                  documentId:
+                    type: string
+                    description: 상위 document UUID
+                  source:
+                    type: string
+                    description: 위젯 생성 출처
+                  title:
+                    type: string
+                    description: UI 표시용 위젯 제목
+                  updatedAt:
+                    type: string
+                    description: ISO-8601 수정 시각
+                  widgetSpec:
+                    type: object
+                    properties:
+                      root:
+                        required:
+                        - props
+                        - type
+                        type: object
+                        properties:
+                          type:
+                            type: string
+                            description: json-render root component type
+                          props:
+                            type: object
+                            description: component별 props subtree
+                  status:
+                    type: string
+                    description: 위젯 생성 상태
+    api-v1-examples-exampleValue191457252:
+      required:
+      - result
+      type: object
+      properties:
+        result:
+          type: string
+          description: ResultType
+        data:
+          required:
+          - date
+          - datetime
+          - items
+          - result
+          type: object
+          properties:
+            date:
+              type: string
+              description: Result Date
+            result:
+              type: string
+              description: Result Data
+            datetime:
+              type: string
+              description: Result Datetime
+            items:
+              type: array
+              description: Result Items
+              items:
+                required:
+                - key
+                type: object
+                properties:
+                  key:
+                    type: string
+                    description: Result Item
+    api-v1-documents-documentId-chat-messages-stream3047155:
+      required:
+      - content
+      type: object
+      properties:
+        selection:
+          type: object
+          properties:
+            pageNumber:
+              type: number
+              description: 선택 시작 지점의 1-based PDF page number
+              nullable: true
+            selectedText:
+              type: string
+              description: 사용자가 드래그한 원문 텍스트
+              nullable: true
+            selectionAnchor:
+              type: object
+              properties:
+                rects:
+                  type: array
+                  description: PDF point 기준 선택 영역 rect 목록
+                  items:
+                    type: object
+                    properties:
+                      pageNumber:
+                        type: number
+                        description: rect가 속한 1-based PDF page
+                        nullable: true
+                      width:
+                        type: number
+                        description: PDF point 기준 rect 너비
+                        nullable: true
+                      x:
+                        type: number
+                        description: PDF page point 좌표계의 x
+                        nullable: true
+                      "y":
+                        type: number
+                        description: PDF page point 좌표계의 y
+                        nullable: true
+                      height:
+                        type: number
+                        description: PDF point 기준 rect 높이
+                        nullable: true
+        content:
+          type: string
+          description: 사용자 질문 본문
+  securitySchemes:
+    bearerAuthJWT:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
