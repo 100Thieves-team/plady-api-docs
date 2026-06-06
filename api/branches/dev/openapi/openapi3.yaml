@@ -39,8 +39,8 @@ paths:
                       "result" : "SUCCESS",
                       "data" : {
                         "result" : "BYE_POST",
-                        "date" : "2026-06-05",
-                        "datetime" : "2026-06-05T16:19:41.309878695",
+                        "date" : "2026-06-06",
+                        "datetime" : "2026-06-06T08:00:27.018406331",
                         "items" : [ {
                           "key" : "1"
                         }, {
@@ -120,8 +120,8 @@ paths:
                       "result" : "SUCCESS",
                       "data" : {
                         "result" : "BYE_GET",
-                        "date" : "2026-06-05",
-                        "datetime" : "2026-06-05T16:19:41.234726978",
+                        "date" : "2026-06-06",
+                        "datetime" : "2026-06-06T08:00:26.952027437",
                         "items" : [ {
                           "key" : "1"
                         }, {
@@ -585,12 +585,11 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/api-v1-documents-documentId-chat-messages-stream3047155"
+              $ref: "#/components/schemas/api-v1-documents-documentId-chat-messages-stream-295085340"
             examples:
               chatMessageStreamFromSelection:
                 value: |-
                   {
-                    "chatSessionId" : null,
                     "content" : "Explain the difference between BFS and DFS in this tree context.",
                     "selection" : {
                       "selectedText" : "Breadth-First Search (BFS) and Depth-First Search (DFS) are the standard algorithms used to traverse or search tree data structures.",
@@ -1233,7 +1232,7 @@ components:
                   key:
                     type: string
                     description: Result Item
-    api-v1-documents-documentId-chat-messages-stream3047155:
+    api-v1-documents-documentId-chat-messages-stream-295085340:
       required:
       - content
       type: object
@@ -1278,6 +1277,10 @@ components:
                         type: number
                         description: PDF point 기준 rect 높이
                         nullable: true
+        chatSessionId:
+          type: string
+          description: 기존 세션 UUID. 첫 질문이면 생략
+          nullable: true
         content:
           type: string
           description: 사용자 질문 본문
