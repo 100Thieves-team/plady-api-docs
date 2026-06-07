@@ -754,7 +754,7 @@ Content-Length: 236
   "data" : {
     "result" : "BYE_GET",
     "date" : "2026-06-07",
-    "datetime" : "2026-06-07T05:38:13.297247694",
+    "datetime" : "2026-06-07T14:35:16.815797548",
     "items" : [ {
       "key" : "1"
     }, {
@@ -868,7 +868,7 @@ Content-Length: 237
   "data" : {
     "result" : "BYE_POST",
     "date" : "2026-06-07",
-    "datetime" : "2026-06-07T05:38:13.348541149",
+    "datetime" : "2026-06-07T14:35:16.909274883",
     "items" : [ {
       "key" : "1"
     }, {
@@ -2432,16 +2432,19 @@ Content-Length: 1662
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
 Content-Type: text/event-stream
-Content-Length: 807
+Content-Length: 911
 
 event:chat-session
 data:{"chatSessionId":"83c65b2b-4207-4c16-a91c-f691d50d5c88","documentId":"3f4f6b0d-9a8d-48a7-9b7d-8e0acba97c1a","title":"BFS? DFS ??","userMessageId":"f596bd28-1135-4ef3-9270-e8e2e583d838","createdAt":"2026-06-05T04:20Z","newSession":true}
 
 event:assistant-message-delta
-data:{"chatSessionId":"83c65b2b-4207-4c16-a91c-f691d50d5c88","sequence":1,"delta":"BFS? ???? ???? DFS? ? ??? ??? ??? ? ??????."}
+data:{"chatSessionId":"83c65b2b-4207-4c16-a91c-f691d50d5c88","sequence":1,"delta":"BFS? ???? ???? "}
+
+event:assistant-message-delta
+data:{"chatSessionId":"83c65b2b-4207-4c16-a91c-f691d50d5c88","sequence":2,"delta":"DFS? ?? ???? ?????."}
 
 event:assistant-message-completed
-data:{"chatSessionId":"83c65b2b-4207-4c16-a91c-f691d50d5c88","assistantMessage":{"chatMessageId":"4e320c7e-e216-4074-bf32-0d239dd9dd6c","chatSessionId":"83c65b2b-4207-4c16-a91c-f691d50d5c88","role":"ASSISTANT","content":"BFS? ???? ???? DFS? ? ??? ??? ??? ? ??????.","model":"gpt-4.1-mini","selectionSnapshot":null,"createdAt":"2026-06-05T04:21:13Z"}}</code></pre>
+data:{"chatSessionId":"83c65b2b-4207-4c16-a91c-f691d50d5c88","assistantMessage":{"chatMessageId":"4e320c7e-e216-4074-bf32-0d239dd9dd6c","chatSessionId":"83c65b2b-4207-4c16-a91c-f691d50d5c88","role":"ASSISTANT","content":"BFS? ???? ???? DFS? ?? ???? ?????.","model":"test-stream-model","selectionSnapshot":null,"createdAt":"2026-06-05T04:21:13Z"}}</code></pre>
 </div>
 </div>
 <hr>
@@ -2519,7 +2522,7 @@ Unresolved directive in index.adoc - include::build/generated-snippets/documents
 <div id="footer">
 <div id="footer-text">
 Version 0.0.1-SNAPSHOT<br>
-Last updated 2026-06-07 05:35:55 UTC
+Last updated 2026-06-07 14:32:56 UTC
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>

@@ -81,7 +81,7 @@ paths:
                       "data" : {
                         "result" : "BYE_POST",
                         "date" : "2026-06-07",
-                        "datetime" : "2026-06-07T05:38:13.348541149",
+                        "datetime" : "2026-06-07T14:35:16.909274883",
                         "items" : [ {
                           "key" : "1"
                         }, {
@@ -275,7 +275,7 @@ paths:
                       "data" : {
                         "result" : "BYE_GET",
                         "date" : "2026-06-07",
-                        "datetime" : "2026-06-07T05:38:13.297247694",
+                        "datetime" : "2026-06-07T14:35:16.815797548",
                         "items" : [ {
                           "key" : "1"
                         }, {
@@ -853,10 +853,13 @@ paths:
                     data:{"chatSessionId":"83c65b2b-4207-4c16-a91c-f691d50d5c88","documentId":"3f4f6b0d-9a8d-48a7-9b7d-8e0acba97c1a","title":"BFS? DFS ??","userMessageId":"f596bd28-1135-4ef3-9270-e8e2e583d838","createdAt":"2026-06-05T04:20Z","newSession":true}
 
                     event:assistant-message-delta
-                    data:{"chatSessionId":"83c65b2b-4207-4c16-a91c-f691d50d5c88","sequence":1,"delta":"BFS? ???? ???? DFS? ? ??? ??? ??? ? ??????."}
+                    data:{"chatSessionId":"83c65b2b-4207-4c16-a91c-f691d50d5c88","sequence":1,"delta":"BFS? ???? ???? "}
+
+                    event:assistant-message-delta
+                    data:{"chatSessionId":"83c65b2b-4207-4c16-a91c-f691d50d5c88","sequence":2,"delta":"DFS? ?? ???? ?????."}
 
                     event:assistant-message-completed
-                    data:{"chatSessionId":"83c65b2b-4207-4c16-a91c-f691d50d5c88","assistantMessage":{"chatMessageId":"4e320c7e-e216-4074-bf32-0d239dd9dd6c","chatSessionId":"83c65b2b-4207-4c16-a91c-f691d50d5c88","role":"ASSISTANT","content":"BFS? ???? ???? DFS? ? ??? ??? ??? ? ??????.","model":"gpt-4.1-mini","selectionSnapshot":null,"createdAt":"2026-06-05T04:21:13Z"}}
+                    data:{"chatSessionId":"83c65b2b-4207-4c16-a91c-f691d50d5c88","assistantMessage":{"chatMessageId":"4e320c7e-e216-4074-bf32-0d239dd9dd6c","chatSessionId":"83c65b2b-4207-4c16-a91c-f691d50d5c88","role":"ASSISTANT","content":"BFS? ???? ???? DFS? ?? ???? ?????.","model":"test-stream-model","selectionSnapshot":null,"createdAt":"2026-06-05T04:21:13Z"}}
 
       security:
       - bearerAuthJWT: []
