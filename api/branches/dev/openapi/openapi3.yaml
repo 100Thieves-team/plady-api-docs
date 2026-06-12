@@ -28,7 +28,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-documents394150815"
+                $ref: "#/components/schemas/api-v1-documents1960013079"
               examples:
                 documentList:
                   value: |-
@@ -41,6 +41,7 @@ paths:
                           "contentType" : "application/pdf",
                           "fileSizeBytes" : 12345,
                           "objectKey" : "documents/018f06e8-23a1-7f52-b021-8f8c9d8f0001/018f06e8-23a1-7f52-b021-8f8c9d8f0002/sample.pdf",
+                          "thumbnailUrl" : "https://plady-test-bucket.s3.ap-northeast-2.amazonaws.com/documents/018f06e8-23a1-7f52-b021-8f8c9d8f0001/018f06e8-23a1-7f52-b021-8f8c9d8f0002/thumbnail/page-1.png",
                           "pageCount" : null,
                           "processingStatus" : "UPLOAD_REQUESTED",
                           "createdAt" : "2026-06-05T11:00:00Z"
@@ -80,8 +81,8 @@ paths:
                       "result" : "SUCCESS",
                       "data" : {
                         "result" : "BYE_POST",
-                        "date" : "2026-06-07",
-                        "datetime" : "2026-06-07T14:35:16.909274883",
+                        "date" : "2026-06-12",
+                        "datetime" : "2026-06-12T08:18:53.775993047",
                         "items" : [ {
                           "key" : "1"
                         }, {
@@ -205,7 +206,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-documents-documentId-1463741784"
+                $ref: "#/components/schemas/api-v1-documents-documentId-1193502400"
               examples:
                 documentGet:
                   value: |-
@@ -217,6 +218,7 @@ paths:
                         "contentType" : "application/pdf",
                         "fileSizeBytes" : 12345,
                         "objectKey" : "documents/018f06e8-23a1-7f52-b021-8f8c9d8f0001/018f06e8-23a1-7f52-b021-8f8c9d8f0002/sample.pdf",
+                        "thumbnailUrl" : "https://plady-test-bucket.s3.ap-northeast-2.amazonaws.com/documents/018f06e8-23a1-7f52-b021-8f8c9d8f0001/018f06e8-23a1-7f52-b021-8f8c9d8f0002/thumbnail/page-1.png",
                         "pageCount" : 5,
                         "processingStatus" : "ANALYZED",
                         "summary" : "자료구조의 핵심 개념을 요약한 문서입니다.",
@@ -274,8 +276,8 @@ paths:
                       "result" : "SUCCESS",
                       "data" : {
                         "result" : "BYE_GET",
-                        "date" : "2026-06-07",
-                        "datetime" : "2026-06-07T14:35:16.815797548",
+                        "date" : "2026-06-12",
+                        "datetime" : "2026-06-12T08:18:53.678756731",
                         "items" : [ {
                           "key" : "1"
                         }, {
@@ -924,7 +926,7 @@ paths:
                     }
 components:
   schemas:
-    api-v1-documents394150815:
+    api-v1-documents1960013079:
       required:
       - result
       type: object
@@ -973,96 +975,12 @@ components:
                   contentType:
                     type: string
                     description: 파일 MIME 타입
+                  thumbnailUrl:
+                    type: string
+                    description: 카드 표시용 첫 페이지 썸네일 URL. 없으면 null
+                    nullable: true
     api-v1-documents-documentId-chat-messages-stream-33084672:
       type: object
-    api-v1-documents-documentId-1463741784:
-      required:
-      - result
-      type: object
-      properties:
-        result:
-          type: string
-          description: ResultType
-        data:
-          required:
-          - contentType
-          - createdAt
-          - documentId
-          - fileSizeBytes
-          - objectKey
-          - originalFileName
-          - pageCount
-          - pages
-          - processingStatus
-          - summary
-          - summaryMetadata
-          - updatedAt
-          type: object
-          properties:
-            summary:
-              type: string
-              description: 전체 문서 요약
-            fileSizeBytes:
-              type: number
-              description: 파일 크기
-            originalFileName:
-              type: string
-              description: 원본 파일명
-            createdAt:
-              type: string
-              description: 문서 생성 시각
-            processingStatus:
-              type: string
-              description: 문서 분석 처리 상태
-            summaryMetadata:
-              type: object
-              description: 전체 문서 요약 메타데이터
-            pageCount:
-              type: number
-              description: PDF 페이지 수
-            pages:
-              type: array
-              description: 페이지 요약 목록
-              items:
-                required:
-                - pageId
-                - pageNumber
-                - processingStatus
-                - summary
-                - summaryMetadata
-                - title
-                type: object
-                properties:
-                  summary:
-                    type: string
-                    description: 페이지 요약
-                  processingStatus:
-                    type: string
-                    description: 페이지 처리 상태
-                  summaryMetadata:
-                    type: object
-                    description: 페이지 요약 메타데이터
-                  pageNumber:
-                    type: number
-                    description: PDF 페이지 번호
-                  title:
-                    type: string
-                    description: 페이지 제목
-                  pageId:
-                    type: string
-                    description: 페이지 ID
-            objectKey:
-              type: string
-              description: 저장소 object key
-            documentId:
-              type: string
-              description: PDF 문서 ID
-            contentType:
-              type: string
-              description: 파일 MIME 타입
-            updatedAt:
-              type: string
-              description: 문서 수정 시각
     api-v1-documents-documentId-chat-sessions-2011013592:
       required:
       - result
@@ -1834,6 +1752,98 @@ components:
         contentType:
           type: string
           description: 파일 MIME 타입. application/pdf 만 허용
+    api-v1-documents-documentId-1193502400:
+      required:
+      - result
+      type: object
+      properties:
+        result:
+          type: string
+          description: ResultType
+        data:
+          required:
+          - contentType
+          - createdAt
+          - documentId
+          - fileSizeBytes
+          - objectKey
+          - originalFileName
+          - pageCount
+          - pages
+          - processingStatus
+          - summary
+          - summaryMetadata
+          - updatedAt
+          type: object
+          properties:
+            summary:
+              type: string
+              description: 전체 문서 요약
+            originalFileName:
+              type: string
+              description: 원본 파일명
+            summaryMetadata:
+              type: object
+              description: 전체 문서 요약 메타데이터
+            pageCount:
+              type: number
+              description: PDF 페이지 수
+            fileSizeBytes:
+              type: number
+              description: 파일 크기
+            createdAt:
+              type: string
+              description: 문서 생성 시각
+            processingStatus:
+              type: string
+              description: 문서 분석 처리 상태
+            pages:
+              type: array
+              description: 페이지 요약 목록
+              items:
+                required:
+                - pageId
+                - pageNumber
+                - processingStatus
+                - summary
+                - summaryMetadata
+                - title
+                type: object
+                properties:
+                  summary:
+                    type: string
+                    description: 페이지 요약
+                  processingStatus:
+                    type: string
+                    description: 페이지 처리 상태
+                  summaryMetadata:
+                    type: object
+                    description: 페이지 요약 메타데이터
+                  pageNumber:
+                    type: number
+                    description: PDF 페이지 번호
+                  title:
+                    type: string
+                    description: 페이지 제목
+                  pageId:
+                    type: string
+                    description: 페이지 ID
+            objectKey:
+              type: string
+              description: 저장소 object key
+            documentId:
+              type: string
+              description: PDF 문서 ID
+            contentType:
+              type: string
+              description: 파일 MIME 타입
+            updatedAt:
+              type: string
+              description: 문서 수정 시각
+            thumbnailUrl:
+              type: string
+              description: 카드 표시용 첫 페이지 썸네일 URL. 없으면 null
+              nullable: true
     api-v1-documents-presigned-url-1699965102:
       required:
       - result
