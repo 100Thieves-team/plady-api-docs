@@ -73,7 +73,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-examples-exampleValue191457252"
+                $ref: "#/components/schemas/api-v1-examples191457252"
               examples:
                 examplePost:
                   value: |-
@@ -81,8 +81,8 @@ paths:
                       "result" : "SUCCESS",
                       "data" : {
                         "result" : "BYE_POST",
-                        "date" : "2026-06-12",
-                        "datetime" : "2026-06-12T08:18:53.775993047",
+                        "date" : "2026-06-18",
+                        "datetime" : "2026-06-18T05:23:47.778257582",
                         "items" : [ {
                           "key" : "1"
                         }, {
@@ -268,7 +268,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/api-v1-examples-exampleValue191457252"
+                $ref: "#/components/schemas/api-v1-examples191457252"
               examples:
                 exampleGet:
                   value: |-
@@ -276,8 +276,8 @@ paths:
                       "result" : "SUCCESS",
                       "data" : {
                         "result" : "BYE_GET",
-                        "date" : "2026-06-12",
-                        "datetime" : "2026-06-12T08:18:53.678756731",
+                        "date" : "2026-06-18",
+                        "datetime" : "2026-06-18T05:23:47.655086911",
                         "items" : [ {
                           "key" : "1"
                         }, {
@@ -591,6 +591,54 @@ paths:
                       },
                       "error" : null
                     }
+  /api/v1/documents/{documentId}/summary:
+    get:
+      tags:
+      - api
+      summary: 문서 요약 조회
+      description: 문서 요약 탭에 표시할 학습 가이드(개요 + 페이지 참조를 가진 섹션 목록)를 조회한다.
+      operationId: documentGetSummary
+      parameters:
+      - name: documentId
+        in: path
+        description: PDF 문서 ID
+        required: true
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: Bearer access token
+        required: true
+        schema:
+          type: string
+        example: Bearer eyJhbGciOiJIUzI1NiJ9.e30=.signature
+      responses:
+        "200":
+          description: "200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/api-v1-documents-documentId-summary-1098037815"
+              examples:
+                documentGetSummary:
+                  value: |-
+                    {
+                      "result" : "SUCCESS",
+                      "data" : {
+                        "documentId" : "018f06e8-23a1-7f52-b021-8f8c9d8f0002",
+                        "processingStatus" : "ANALYZED",
+                        "overview" : "이 문서는 그래프 탐색 알고리즘의 핵심 개념을 학습하기 위한 자료입니다.",
+                        "sections" : [ {
+                          "title" : "그래프 탐색 개요",
+                          "body" : "BFS와 DFS는 그래프를 순회하는 두 가지 기본 전략으로, 각각 큐와 스택을 사용한다.",
+                          "keyPoints" : [ "BFS는 큐를 사용한다.", "DFS는 스택 또는 재귀를 사용한다." ],
+                          "sourcePages" : [ 1, 2 ]
+                        } ]
+                      },
+                      "error" : null
+                    }
+      security:
+      - bearerAuthJWT: []
   /api/v1/documents/{documentId}/widgets:
     get:
       tags:
@@ -926,6 +974,66 @@ paths:
                     }
 components:
   schemas:
+    api-v1-documents-documentId-summary-1098037815:
+      required:
+      - result
+      type: object
+      properties:
+        result:
+          type: string
+          description: ResultType
+        data:
+          required:
+          - documentId
+          - processingStatus
+          - sections
+          type: object
+          properties:
+            overview:
+              type: string
+              description: 문서 전체 학습 개요. 요약 전이면 null
+              nullable: true
+            processingStatus:
+              type: string
+              description: 문서 분석 처리 상태
+            documentId:
+              type: string
+              description: PDF 문서 ID
+            sections:
+              type: array
+              description: 학습 섹션 목록
+              items:
+                required:
+                - body
+                - keyPoints
+                - sourcePages
+                - title
+                type: object
+                properties:
+                  sourcePages:
+                    type: array
+                    description: 섹션 출처 페이지 번호 목록(오름차순)
+                    items:
+                      oneOf:
+                      - type: object
+                      - type: boolean
+                      - type: string
+                      - type: number
+                  keyPoints:
+                    type: array
+                    description: 섹션 핵심 포인트 목록
+                    items:
+                      oneOf:
+                      - type: object
+                      - type: boolean
+                      - type: string
+                      - type: number
+                  body:
+                    type: string
+                    description: 섹션 학습 설명
+                  title:
+                    type: string
+                    description: 섹션 제목
     api-v1-documents1960013079:
       required:
       - result
@@ -1344,7 +1452,7 @@ components:
             updatedAt:
               type: string
               description: 페이지 수정 시각
-    api-v1-examples-exampleValue191457252:
+    api-v1-examples191457252:
       required:
       - result
       type: object
